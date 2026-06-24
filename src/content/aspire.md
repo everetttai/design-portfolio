@@ -30,6 +30,8 @@ We framed the opportunity as a single How Might We:
 
 Synthesizing the interviews into a user journey map surfaced a clear emotional arc: people discover a new skill they want to build, feel motivated initially, then hit friction almost immediately — confusion about where to start, trial-and-error with no expert to ask, and eventually burnout from a lack of feedback or community. The opportunities clustered around the same points where sentiment dropped: faster feedback, a way to know if a tool is actually helping, and incentive to keep going when no one's watching.
 
+![Our process diagram, research synthesis sticky notes, and user journey map](aspire:research_process)
+
 That research converged into three design principles we held onto through the rest of the project:
 
 1. **Convenient** — people waste time hunting for the right resource; the product should save them that time.
@@ -43,6 +45,8 @@ A few specific ideas from our brainstorming made it into the final product close
 ## From sketch to screen
 
 We moved through paper sketches, to grayscale lo-fi wireframes, to a full hi-fi prototype inside the same three-week window — fast enough that we had to be deliberate about which flow actually needed to be polished. One of our own working notes from that phase put it plainly: *"Have one really good flow that can be your demo."* Rather than spreading effort evenly across every feature, we made sure the core practice loop — record a response, get feedback, try again — was the one that actually felt finished.
+
+![Our problem framing, opportunity statement, and the lesson-tree solution screen](aspire:solution_screens)
 
 ---
 

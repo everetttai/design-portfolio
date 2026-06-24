@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 
-export default function CaseStudyCard({ to, meta, title, description, isFirst }) {
+export default function CaseStudyCard({ to, meta, title, description, isFirst, image }) {
   return (
     <div style={{
       display: 'grid',
@@ -11,19 +11,15 @@ export default function CaseStudyCard({ to, meta, title, description, isFirst })
       borderBottom: '1px solid var(--rule)',
       alignItems: 'start',
     }}
-    className="case-study-row"
+    className="case-study-row reveal-on-scroll"
     >
-      <div style={{
+      <Link to={to} className="case-thumb-link" style={{
         background: 'var(--bg-card)',
-        border: '1px solid var(--rule)',
         borderRadius: '3px',
         aspectRatio: '4 / 3',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        color: 'var(--ink-soft)',
-        fontSize: '13px',
         position: 'relative',
+        overflow: 'hidden',
+        display: 'block',
       }}>
         <span style={{
           position: 'absolute',
@@ -34,9 +30,23 @@ export default function CaseStudyCard({ to, meta, title, description, isFirst })
           borderRadius: '50%',
           background: 'var(--accent)',
           opacity: 0.55,
+          zIndex: 1,
         }} />
-        {title} hero image
-      </div>
+        {image && (
+          <img
+            src={image}
+            alt={`${title} preview`}
+            className="case-thumb-img"
+            style={{
+              width: '100%',
+              height: '100%',
+              objectFit: 'cover',
+              objectPosition: 'top',
+              display: 'block',
+            }}
+          />
+        )}
+      </Link>
       <div>
         <div style={{
           fontSize: '13px',
@@ -52,7 +62,7 @@ export default function CaseStudyCard({ to, meta, title, description, isFirst })
             </span>
           ))}
         </div>
-        <h3 style={{
+        <h3 className="case-study-title" style={{
           fontFamily: 'var(--font-display)',
           fontWeight: 500,
           fontSize: '28px',

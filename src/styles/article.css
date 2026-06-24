@@ -89,3 +89,12 @@
   padding: 2px 5px;
   border-radius: 2px;
 }
+
+.case-study-article figure {
+  margin: 32px 0;
+}
+
+.case-study-article figcaption {
+  font-family: var(--font-body);
+  text-align: center;
+}

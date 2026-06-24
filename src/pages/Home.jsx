@@ -1,7 +1,12 @@
 import CaseStudyCard from '../components/CaseStudyCard';
 import FieldNoteCard from '../components/FieldNoteCard';
+import useScrollReveal from '../hooks/useScrollReveal';
+import aipaHero from '../assets/aipa/avatar_encounter.jpg';
+import aspireHero from '../assets/aspire/solution_screens.jpg';
 
 export default function Home() {
+  useScrollReveal();
+
   return (
     <div className="wrap">
 
@@ -52,6 +57,7 @@ export default function Home() {
         meta={['Spring 2025 – Jun 2026', 'DALI Lab', 'Co-designed']}
         title="AI Patient Actor"
         description="Letting medical students practice patient encounters with an AI-simulated patient, with structured feedback built around real clinical rubrics."
+        image={aipaHero}
       />
 
       <div className="section-label">Also worth a look</div>
@@ -67,6 +73,7 @@ export default function Home() {
           tag="Capstone · 3 weeks"
           title="Aspire"
           description="A learn-by-doing hub for career skills, built and led across a 4-person team in three weeks for Dartmouth's Intro to UI/UX course."
+          image={aspireHero}
         />
         <FieldNoteCard
           tag="Other work"
