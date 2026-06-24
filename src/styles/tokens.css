@@ -184,6 +184,21 @@ a {
   }
 }
 
+.icon-link:hover {
+  color: var(--accent);
+  background-color: var(--accent-soft);
+}
+
+.pill-link {
+  transition: border-color 0.2s ease, color 0.2s ease, background-color 0.2s ease;
+}
+
+.pill-link:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  background-color: var(--accent-soft);
+}
+
 /* ============================================================
    Home landing — full-viewport hero, ambient atmosphere,
    kinetic type, and the scroll affordance into About.

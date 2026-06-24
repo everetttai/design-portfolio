@@ -7,6 +7,37 @@ import useScrollReveal from '../hooks/useScrollReveal';
 const HEADLINE = ['I', 'design', 'products', 'for', 'healthcare,', 'education,', 'and', 'career', 'tools.'];
 const ITALIC = new Set(['healthcare,', 'education,', 'career', 'tools.']);
 
+const EMAIL = 'everetthtai@gmail.com';
+const LINKEDIN_URL = 'https://www.linkedin.com/in/everett-tai-2a0524251';
+
+function PillLink({ href, label, icon, external }) {
+  return (
+    <a
+      href={href}
+      aria-label={label}
+      className="pill-link"
+      style={{
+        display: 'inline-flex',
+        alignItems: 'center',
+        gap: '8px',
+        padding: '9px 18px 9px 14px',
+        borderRadius: '999px',
+        border: '1px solid var(--rule)',
+        color: 'var(--ink)',
+        fontSize: '14px',
+        fontWeight: 500,
+        textDecoration: 'none',
+      }}
+      {...(external ? { target: '_blank', rel: 'noreferrer' } : {})}
+    >
+      <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true" style={{ flexShrink: 0 }}>
+        <use href={`/icons.svg#${icon}`} />
+      </svg>
+      {label}
+    </a>
+  );
+}
+
 function SkillCell({ title, body }) {
   return (
     <div>
@@ -28,13 +59,14 @@ export default function Home() {
   const innerRef = useRef(null);
   const location = useLocation();
 
-  // Arriving from another page via the "About" nav item lands here with the
-  // #about hash; scroll it into view once the section has mounted.
+  // Arriving from another page via the About/Contact nav items lands here
+  // with a hash; scroll the matching section into view once mounted.
   useEffect(() => {
-    if (location.hash !== '#about') return;
+    const id = location.hash.replace('#', '');
+    if (id !== 'about' && id !== 'contact') return;
     const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     const t = setTimeout(() => {
-      const el = document.getElementById('about');
+      const el = document.getElementById(id);
       if (el) el.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' });
     }, 80);
     return () => clearTimeout(t);
@@ -175,12 +207,53 @@ export default function Home() {
       </section>
 
       {/* ---------- Work CTA ---------- */}
-      <section className="wrap" style={{ maxWidth: '720px', padding: '54px 0 100px' }}>
+      <section className="wrap" style={{ maxWidth: '720px', padding: '54px 0 30px' }}>
         <Link to="/portfolio" className="case-link" style={{ fontSize: '16px' }}>
           See Work →
         </Link>
-        <div className="note">
-          always happy to talk about any of this in more detail — reach out
+      </section>
+
+      {/* ---------- Contact ---------- */}
+      <section id="contact" className="wrap" style={{ maxWidth: '680px', padding: '40px 0 110px' }}>
+        <div className="section-label reveal-on-scroll">Contact</div>
+
+        <h2 className="reveal-on-scroll" style={{
+          fontFamily: 'var(--font-display)',
+          fontWeight: 500,
+          fontSize: 'clamp(26px, 3.4vw, 34px)',
+          lineHeight: 1.2,
+          marginBottom: '16px',
+          maxWidth: '20ch',
+        }}>
+          Designing part-time, looking for more of it.
+        </h2>
+
+        <p className="reveal-on-scroll" style={{ fontSize: '16px', color: 'var(--ink-soft)', marginBottom: '28px', maxWidth: '52ch' }}>
+          If you're hiring for a part-time or remote product/UX role — or just want to talk
+          through any of the work above — I'd love to hear from you.
+        </p>
+
+        <a
+          href={`mailto:${EMAIL}`}
+          className="reveal-on-scroll"
+          style={{
+            fontFamily: 'var(--font-display)',
+            fontWeight: 500,
+            fontSize: 'clamp(20px, 2.6vw, 26px)',
+            color: 'var(--ink)',
+            textDecoration: 'none',
+            borderBottom: '2px solid var(--accent)',
+            paddingBottom: '4px',
+            display: 'inline-block',
+            marginBottom: '24px',
+          }}
+        >
+          {EMAIL}
+        </a>
+
+        <div className="reveal-on-scroll" style={{ display: 'flex', gap: '12px', flexWrap: 'wrap' }}>
+          <PillLink href={LINKEDIN_URL} label="LinkedIn" icon="linkedin-icon" external />
+          <PillLink href="/resume/Everett-Tai-Resume.pdf" label="Resume" icon="document-icon" external />
         </div>
       </section>
     </>
