@@ -85,21 +85,21 @@ By the end of the term, the core flow worked end-to-end, and several features th
 
 **Three conversation modes, not one.** Students choose between Text, Speech, and Avatar mode for both how they speak to the patient and how the patient responds to them — a direct response to the empathy-in-text problem from the research. Avatar mode (built on Tavus) gives students a patient who looks at them, speaks, and reacts, which is as close as the tool gets to replicating an actual standardized-patient encounter.
 
-![Choosing between Avatar, Voice, and Chat mode before starting an encounter](aipa:mode_selector)
+![Choosing between Avatar, Voice, and Chat mode before starting an encounter](aipa/mode_selector)
 
 **Camera as opt-in, not a gate.** Early in the term, camera access was an all-or-nothing requirement before a session could start — fine until you actually watch someone fail a webcam permission check and get stuck. We redesigned this around explicit choice: a "Camera Setup" flow that explains what's recorded and why, what an "acceptable" framing looks like, and a clean fallback path to "Practice Without Camera" or "Start With Camera" — so a broken camera or a student who's not comfortable being recorded never blocks practice.
 
-![The camera setup modal, framed as optional for practice rather than a gate](aipa:camera_optional)
+![The camera setup modal, framed as optional for practice rather than a gate](aipa/camera_optional)
 
 **Feedback redesigned around the actual research problem.** The results screen breaks performance into named skill categories — Empathy & Rapport, Communication Clarity, Patient Advocacy, Active Listening, Professionalism — each with its own score bar, plus separate Strengths and Areas for Improvement panels and a Next Steps & Recommendations block. It's the structural fix the "wall of text" research called for, not just a visual cleanup of the same dense paragraph.
 
-![The feedback breakdown screen, with named skill categories instead of a wall of text](aipa:feedback_breakdown)
+![The feedback breakdown screen, with named skill categories instead of a wall of text](aipa/feedback_breakdown)
 
 **Practice vs. submitted, made explicit.** Not every encounter should count. Students can end a session as a private practice run (visible only to them), submit it as a real, gradable encounter, or discard it entirely without saving — so exploratory test runs don't clutter an educator's view of actual student progress.
 
 **An educator side that's more than a gradebook.** Educators get a Cases library, encounter configuration (including which conversation modes are available per case), and a Reports tab built around an AI assistant that can answer questions like "summarize this week's encounters" using live course data, with one-click quick reports for things like at-risk students and diagnosis accuracy trends.
 
-![The educator Reports tab, with the AI assistant mid-conversation](aipa:reports_tab)
+![The educator Reports tab, with the AI assistant mid-conversation](aipa/reports_tab)
 
 ---
 

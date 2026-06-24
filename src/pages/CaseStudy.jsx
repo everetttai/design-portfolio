@@ -19,13 +19,13 @@ const CONTENT = { simreach, aipa, aspire };
 // Maps "slug:key" image references used in markdown (e.g. aipa:mode_selector)
 // to actual imported image assets.
 const IMAGE_MAP = {
-  'aipa:mode_selector': aipaModeSelector,
-  'aipa:camera_optional': aipaCameraOptional,
-  'aipa:feedback_breakdown': aipaFeedbackBreakdown,
-  'aipa:reports_tab': aipaReportsTab,
-  'aipa:avatar_encounter': aipaAvatarEncounter,
-  'aspire:research_process': aspireResearchProcess,
-  'aspire:solution_screens': aspireSolutionScreens,
+  'aipa/mode_selector': aipaModeSelector,
+  'aipa/camera_optional': aipaCameraOptional,
+  'aipa/feedback_breakdown': aipaFeedbackBreakdown,
+  'aipa/reports_tab': aipaReportsTab,
+  'aipa/avatar_encounter': aipaAvatarEncounter,
+  'aspire/research_process': aspireResearchProcess,
+  'aspire/solution_screens': aspireSolutionScreens,
 };
 
 function stripInternalNotes(markdown) {
