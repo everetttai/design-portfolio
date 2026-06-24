@@ -56,8 +56,8 @@ const PROJECTS = [
 ];
 
 export default function Portfolio() {
-  useScrollReveal();
   const [activeCategory, setActiveCategory] = useState('All');
+  useScrollReveal(activeCategory);
 
   const filtered = PROJECTS.filter(
     (p) => activeCategory === 'All' || p.categories.includes(activeCategory)
@@ -76,7 +76,7 @@ export default function Portfolio() {
           fontSize: '38px',
           marginBottom: '14px',
         }}>
-          Work
+          Portfolio
         </h1>
         <p style={{ fontSize: '16px', color: 'var(--ink-soft)', maxWidth: '540px' }}>
           Design case studies, research, and other projects.
