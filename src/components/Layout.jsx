@@ -1,4 +1,4 @@
-import { Link, NavLink } from 'react-router-dom';
+import { Link, NavLink, useNavigate, useLocation } from 'react-router-dom';
 
 const navLinkStyle = ({ isActive }) => ({
   color: isActive ? 'var(--ink)' : 'var(--ink-soft)',
@@ -6,7 +6,38 @@ const navLinkStyle = ({ isActive }) => ({
   fontSize: '14px',
 });
 
+const plainNavStyle = {
+  color: 'var(--ink-soft)',
+  textDecoration: 'none',
+  fontSize: '14px',
+  cursor: 'pointer',
+  background: 'none',
+  border: 'none',
+  padding: 0,
+  fontFamily: 'inherit',
+};
+
 export default function Layout({ children }) {
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  // "About" is a section of the home page, not its own route. From home we
+  // smooth-scroll in place; from any other page we route home first, then let
+  // Home pick up the #about hash and scroll. URL stays shareable as /#about.
+  const handleAbout = (e) => {
+    e.preventDefault();
+    if (location.pathname === '/') {
+      const el = document.getElementById('about');
+      if (el) {
+        const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        el.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' });
+        window.history.replaceState(null, '', '/#about');
+      }
+    } else {
+      navigate({ pathname: '/', hash: '#about' });
+    }
+  };
+
   return (
     <>
       <header style={{
@@ -29,6 +60,7 @@ export default function Layout({ children }) {
           </Link>
           <nav style={{ display: 'flex', gap: '28px' }}>
             <NavLink to="/" style={navLinkStyle} end>Home</NavLink>
+            <a href="/#about" onClick={handleAbout} style={plainNavStyle}>About</a>
             <NavLink to="/portfolio" style={navLinkStyle}>Work</NavLink>
             <a href="mailto:everett.tai@dali.dartmouth.edu" style={{ color: 'var(--ink-soft)', textDecoration: 'none', fontSize: '14px' }}>
               Contact

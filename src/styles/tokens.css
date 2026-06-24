@@ -183,3 +183,153 @@ a {
     transition: none;
   }
 }
+
+/* ============================================================
+   Home landing — full-viewport hero, ambient atmosphere,
+   kinetic type, and the scroll affordance into About.
+   Boldness is spent here and nowhere else: the rest of the
+   site stays the quiet cool-gray editorial column.
+   ============================================================ */
+
+html { scroll-behavior: smooth; }
+
+.hero {
+  position: relative;
+  min-height: calc(100svh - 84px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  overflow: hidden;
+  padding: 48px 0 120px;
+}
+
+/* Barely-there rust glow that drifts slowly behind the type.
+   Same accent as the rest of the site — atmosphere, not a gradient gimmick. */
+.hero__glow {
+  position: absolute;
+  top: 42%;
+  left: 38%;
+  width: 70vw;
+  max-width: 880px;
+  aspect-ratio: 1 / 1;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(circle, rgba(194, 73, 20, 0.13), rgba(194, 73, 20, 0) 62%);
+  filter: blur(10px);
+  pointer-events: none;
+  z-index: 0;
+  animation: glow-drift 24s ease-in-out infinite alternate;
+}
+
+@keyframes glow-drift {
+  0%   { transform: translate(-54%, -52%) scale(1); }
+  100% { transform: translate(-44%, -47%) scale(1.14); }
+}
+
+/* Fine paper grain — picks up the print-editorial feel of the type system. */
+.hero__grain {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.4;
+  mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+.hero__inner { position: relative; z-index: 1; }
+
+/* Kinetic headline — each word rises into place on load. No overflow mask,
+   so descenders (g, p, y) never clip. */
+.hero__word {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(0.42em);
+  animation: word-rise 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes word-rise {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Eyebrow, sub-line and cue share a gentler fade-up. */
+.hero__fade {
+  opacity: 0;
+  transform: translateY(12px);
+  animation: hero-fade 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes hero-fade {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Scroll affordance: a rust hairline with a travelling pulse, left-aligned
+   to the content edge rather than dead-centre. */
+.hero__cue-row {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 34px;
+  z-index: 1;
+}
+
+.scroll-cue {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+  text-decoration: none;
+}
+
+.scroll-cue__label {
+  font-size: 12px;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  transition: color 0.2s ease;
+}
+
+.scroll-cue:hover .scroll-cue__label { color: var(--accent); }
+
+.scroll-cue__line {
+  position: relative;
+  width: 1px;
+  height: 46px;
+  overflow: hidden;
+  background: linear-gradient(var(--rule), rgba(212, 210, 204, 0));
+}
+
+.scroll-cue__line::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 1px;
+  height: 45%;
+  background: linear-gradient(var(--accent), rgba(194, 73, 20, 0));
+  animation: cue-travel 1.9s cubic-bezier(0.6, 0, 0.4, 1) infinite;
+}
+
+@keyframes cue-travel {
+  0%   { transform: translateY(-100%); opacity: 0; }
+  35%  { opacity: 1; }
+  100% { transform: translateY(230%); opacity: 0; }
+}
+
+#about { scroll-margin-top: 28px; }
+
+@media (max-width: 560px) {
+  .hero__skills-grid { grid-template-columns: 1fr !important; }
+}
+
+/* Honour reduced-motion: everything resolves to its final, static state. */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .hero__glow { animation: none; }
+  .scroll-cue__line::after { animation: none; opacity: 0; }
+  .hero__word,
+  .hero__fade {
+    opacity: 1;
+    transform: none;
+    animation: none;
+  }
+}
