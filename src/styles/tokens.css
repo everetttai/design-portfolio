@@ -137,6 +137,19 @@ a {
   transition: background-color 0.25s ease;
 }
 
+.category-filter-btn {
+  border: 1px solid var(--rule);
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+.category-filter-btn:hover {
+  border-color: var(--accent);
+}
+
+.category-filter-btn[data-active="false"]:hover {
+  color: var(--ink);
+}
+
 /* --- Scroll-reveal --- */
 /* Default hidden state; JS (useScrollReveal) adds .is-visible once a card
    scrolls into view. If JS fails to run for any reason, the fallback below

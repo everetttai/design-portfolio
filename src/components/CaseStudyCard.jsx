@@ -1,6 +1,9 @@
 import { Link } from 'react-router-dom';
 
 export default function CaseStudyCard({ to, meta, title, description, isFirst, image }) {
+  const ThumbWrapper = to ? Link : 'div';
+  const thumbProps = to ? { to } : {};
+
   return (
     <div style={{
       display: 'grid',
@@ -13,7 +16,7 @@ export default function CaseStudyCard({ to, meta, title, description, isFirst, i
     }}
     className="case-study-row reveal-on-scroll"
     >
-      <Link to={to} className="case-thumb-link" style={{
+      <ThumbWrapper {...thumbProps} className="case-thumb-link" style={{
         background: 'var(--bg-card)',
         borderRadius: '3px',
         aspectRatio: '4 / 3',
@@ -46,7 +49,20 @@ export default function CaseStudyCard({ to, meta, title, description, isFirst, i
             }}
           />
         )}
-      </Link>
+        {!image && (
+          <div style={{
+            width: '100%',
+            height: '100%',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            color: 'var(--ink-soft)',
+            fontSize: '13px',
+          }}>
+            {title}
+          </div>
+        )}
+      </ThumbWrapper>
       <div>
         <div style={{
           fontSize: '13px',
@@ -78,7 +94,11 @@ export default function CaseStudyCard({ to, meta, title, description, isFirst, i
         }}>
           {description}
         </p>
-        <Link className="case-link" to={to}>Read the case study →</Link>
+        {to ? (
+          <Link className="case-link" to={to}>Read the case study →</Link>
+        ) : (
+          <span style={{ fontSize: '14px', color: 'var(--ink-soft)' }}>Write-up coming soon</span>
+        )}
       </div>
     </div>
   );

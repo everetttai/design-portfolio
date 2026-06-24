@@ -28,8 +28,8 @@ export default function Layout({ children }) {
             Everett Tai
           </Link>
           <nav style={{ display: 'flex', gap: '28px' }}>
-            <NavLink to="/" style={navLinkStyle} end>Work</NavLink>
-            <NavLink to="/about" style={navLinkStyle}>About</NavLink>
+            <NavLink to="/" style={navLinkStyle} end>Home</NavLink>
+            <NavLink to="/portfolio" style={navLinkStyle}>Work</NavLink>
             <a href="mailto:everett.tai@dali.dartmouth.edu" style={{ color: 'var(--ink-soft)', textDecoration: 'none', fontSize: '14px' }}>
               Contact
             </a>
