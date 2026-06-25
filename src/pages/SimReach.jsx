@@ -54,7 +54,7 @@ export default function SimReach() {
           and browser chrome removed). */}
       <ImagePlaceholder
         label="SimReach landing page"
-        aspect="1512 / 886"
+        aspect="1512 / 982"
         src={heroLanding}
       />
       <p style={{ fontSize: '13px', color: 'var(--ink-soft)', margin: '10px 0 50px' }}>
@@ -66,9 +66,9 @@ export default function SimReach() {
           { value: '50%', label: 'optimal reallocation' },
           { value: '24%', label: 'avg. travel time savings' },
           { value: '394', label: 'patients with improved access' },
-          { value: '95%', label: 'confidence interval' },
+          { value: '55 hrs', label: 'total patient time saved' },
         ]}
-        note="Figures from a real Lebanon → Manchester, NH radiation oncology reallocation scenario, shown later in section 3."
+        note="Reallocation, travel-savings, and patient-impact figures from a real Lebanon → Manchester, NH radiation oncology scenario in the live app, shown later in section 3. The 55-hour total (95% CI: 34–71) is the validated result for the same scenario published in Scodari et al., Dartmouth Health's underlying simulation study."
       />
 
       <div style={{
@@ -173,8 +173,8 @@ export default function SimReach() {
             </p>
 
             <BeforeAfter
-              before={{ label: 'Early layout — gridlines, straight segments, unused Data Table panel', caption: 'An earlier pass at the same idea — the chart reads more like raw output, and the empty panel on the right never got used.', src: beforeMetricCards, aspect: '1512 / 1300' }}
-              after={{ label: 'Shipped — smoothed curve, no dead UI', caption: 'The Data Table panel is gone, the curve is smoothed, and the layout commits fully to the metric-cards-first hierarchy.', src: afterMetricCards, aspect: '2849 / 1750' }}
+              before={{ label: 'Early layout — gridlines, straight segments, unused Data Table panel', caption: 'An earlier pass at the same idea — the chart reads more like raw output, and the empty panel on the right never got used.', src: beforeMetricCards, aspect: '3 / 2' }}
+              after={{ label: 'Shipped — smoothed curve, no dead UI', caption: 'The Data Table panel is gone, the curve is smoothed, and the layout commits fully to the metric-cards-first hierarchy.', src: afterMetricCards, aspect: '3 / 2' }}
             />
 
             <p style={{ marginTop: '8px', marginBottom: '12px' }}>
@@ -244,7 +244,6 @@ export default function SimReach() {
                   body: 'The Data Hub\u2019s "94% data quality" score is a placeholder. A more honest version would use qualitative tiers grounded in concrete rules rather than implying false precision.',
                 },
               ]}
-              note="I'd rather show that I can recognize the gap between shipped and finished than pretend the v1 is the final word."
             />
           </Section>
 
