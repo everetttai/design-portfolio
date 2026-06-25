@@ -23,7 +23,7 @@ const SECTIONS = [
 export default function SimReach() {
   return (
     <div className="wrap" style={{ padding: '60px 0 100px' }}>
-      <Link className="case-link" to="/" style={{ marginBottom: '40px', display: 'inline-block' }}>
+      <Link className="case-link" to="/portfolio" style={{ marginBottom: '40px', display: 'inline-block' }}>
         ← Back to all work
       </Link>
 
@@ -253,7 +253,7 @@ export default function SimReach() {
       </div>
 
       <CaseStudyFooter
-        backHref="/"
+        backHref="/portfolio"
         nextHref="/work/aipa"
         nextLabel="AI Patient Actor"
       />
