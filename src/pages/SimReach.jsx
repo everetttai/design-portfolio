@@ -11,6 +11,13 @@ import {
   CaseStudyFooter,
 } from '../components/case-study/CaseStudyParts';
 
+import heroLanding from '../assets/simreach/hero_landing_full.jpg';
+import hubSpokeDiagram from '../assets/simreach/hub_spoke_diagram.svg';
+import beforeMetricCards from '../assets/simreach/before_metric_cards_curve.jpg';
+import afterMetricCards from '../assets/simreach/after_metric_cards_curve.jpg';
+import dataHubPrepareCsv from '../assets/simreach/data_hub_prepare_csv.jpg';
+import dataHubAssignLocations from '../assets/simreach/data_hub_assign_locations.jpg';
+
 const SECTIONS = [
   { id: 'problem', label: 'The problem' },
   { id: 'research', label: 'Research' },
@@ -43,30 +50,26 @@ export default function SimReach() {
         ]}
       />
 
-      {/* Hero — your strongest finished screen, edge-to-edge. Send me the
-          Scenario Results screenshot and I'll drop it in here. */}
+      {/* Hero — the live SimReach landing page (Log In / Sign Up buttons
+          and browser chrome removed). */}
       <ImagePlaceholder
-        label="Hero — Scenario Results screen (headline-first layout)"
-        aspect="16 / 9"
-        assetKey="simreach/scenario_results_hero"
+        label="SimReach landing page"
+        aspect="1512 / 886"
+        src={heroLanding}
       />
       <p style={{ fontSize: '13px', color: 'var(--ink-soft)', margin: '10px 0 50px' }}>
-        The Scenario Results screen, after the headline-first restructure described in section 3.
+        The live SimReach landing page, with the Scenario Hub and the optimization curve previewed in the product screenshots on the right.
       </p>
 
-      {/* Stat row intentionally omitted for now — see note in chat about
-          real figures vs. invented ones. Drop it back in once you have
-          (or decide to drop) real numbers:
       <StatRow
         stats={[
-          { value: '—%', label: 'optimal reallocation' },
-          { value: '—%', label: 'travel time reduction' },
-          { value: '—', label: 'patients impacted' },
+          { value: '50%', label: 'optimal reallocation' },
+          { value: '24%', label: 'avg. travel time savings' },
+          { value: '394', label: 'patients with improved access' },
           { value: '95%', label: 'confidence interval' },
         ]}
-        note="Confidence interval is the only figure confirmed in the project writeup so far — the rest need real simulation output before they can go live."
+        note="Figures from a real Lebanon → Manchester, NH radiation oncology reallocation scenario, shown later in section 3."
       />
-      */}
 
       <div style={{
         display: 'grid',
@@ -92,9 +95,10 @@ export default function SimReach() {
               sits under-booked while the hub is overwhelmed.
             </p>
             <ImagePlaceholder
-              label="Diagram — hub-and-spoke network: one hub, satellite clinics, drive-time arcs"
-              aspect="16 / 9"
-              assetKey="simreach/hub_spoke_diagram"
+              label="Hub-and-spoke network diagram"
+              aspect="800 / 460"
+              src={hubSpokeDiagram}
+              fit="contain"
             />
             <p style={{ marginTop: '24px', marginBottom: '18px' }}>
               SimReach is a decision-support tool built on top of a real simulation framework
@@ -159,23 +163,26 @@ export default function SimReach() {
               before they start declining or reversing.
             </p>
             <p style={{ marginBottom: '28px' }}>
-              That's a hard thing to show simply. Our early iterations showed the raw optimization
-              curve as the primary view — honest, but it asked the user to interpret a graph before
-              getting an answer. Hospital directors aren't data scientists; they came to SimReach
-              with a question, not a curiosity about confidence bands.
+              The metric-cards-plus-curve hierarchy was there from an early stage — that part of
+              the decision was made fast. What took iteration was everything around it. The early
+              version plotted the curve with gridlines and straight-line segments between points,
+              which made it read more like a debugging chart than a finished answer, and it shipped
+              with an empty "Data Table" panel taking up a quarter of the screen that never actually
+              held data. Hospital directors aren't data scientists; anything that read as
+              "engineering tool" rather than "answer" was working against the product.
             </p>
 
             <BeforeAfter
-              before={{ label: 'Raw curve as the primary view', caption: 'The version that didn\u2019t work — honest, but asks for interpretation before delivering an answer.', assetKey: 'simreach/before_curve' }}
-              after={{ label: 'Answer-first: metric cards on top, curve below', caption: 'Shipped — the answer in the first five seconds; the curve still there for anyone who wants to verify.', assetKey: 'simreach/after_metric_cards' }}
+              before={{ label: 'Early layout — gridlines, straight segments, unused Data Table panel', caption: 'An earlier pass at the same idea — the chart reads more like raw output, and the empty panel on the right never got used.', src: beforeMetricCards, aspect: '1512 / 1300' }}
+              after={{ label: 'Shipped — smoothed curve, no dead UI', caption: 'The Data Table panel is gone, the curve is smoothed, and the layout commits fully to the metric-cards-first hierarchy.', src: afterMetricCards, aspect: '2849 / 1750' }}
             />
 
             <p style={{ marginTop: '8px', marginBottom: '12px' }}>
-              We restructured Scenario Results around a headline-first hierarchy:
+              The shipped hierarchy:
             </p>
             <ul style={{ paddingLeft: '22px', display: 'flex', flexDirection: 'column', gap: '10px' }}>
               <li><strong>Top:</strong> the answer — optimal % reallocation, travel reduction, patients impacted — as scannable metric cards</li>
-              <li><strong>Middle:</strong> the curve, with the optimal point marked, not just plotted</li>
+              <li><strong>Middle:</strong> the curve, smoothed and with the optimal point marked, not just plotted</li>
               <li><strong>Bottom:</strong> plain-language takeaways, each pushable to a Notebook to-do in one click</li>
             </ul>
           </Section>
@@ -193,10 +200,22 @@ export default function SimReach() {
             </ul>
 
             <ImagePlaceholder
-              label="Upload → validation flow (two stitched screens, or a short looping clip)"
-              aspect="16 / 9"
-              assetKey="simreach/data_hub_upload_validation"
+              label="Step 1 — preparing the Patient Demand Data CSV"
+              aspect="1512 / 982"
+              src={dataHubPrepareCsv}
             />
+            <p style={{ fontSize: '13px', color: 'var(--ink-soft)', margin: '10px 0 24px' }}>
+              Step 1: the 10 required columns for patient demand data, with a downloadable template to reduce mapping errors.
+            </p>
+
+            <ImagePlaceholder
+              label="Step 3 — assigning uploaded files to hospital locations"
+              aspect="1512 / 982"
+              src={dataHubAssignLocations}
+            />
+            <p style={{ fontSize: '13px', color: 'var(--ink-soft)', margin: '10px 0' }}>
+              Step 3: a single uploaded CSV assigned across all eight real network locations — the flexible file-structure and delegation point described above.
+            </p>
 
             <p style={{ marginTop: '24px' }}>
               This was also the flow where I felt the limits of my own context most acutely. Early
