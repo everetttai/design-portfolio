@@ -96,7 +96,7 @@ export default function SimReach() {
             </p>
             <ImagePlaceholder
               label="Hub-and-spoke network diagram"
-              aspect="800 / 460"
+              aspect="900 / 460"
               src={hubSpokeDiagram}
               fit="contain"
             />
@@ -228,10 +228,10 @@ export default function SimReach() {
             </p>
           </Section>
 
-          <Section id="limitations" number="05" title="Known limitations (and why I'm naming them)">
+          <Section id="limitations" number="05" title="Known limitations">
             <p style={{ marginBottom: '24px' }}>
-              Two things in the shipped product are explicitly not finished, and I think that's
-              worth saying outright rather than hiding:
+              Two things worth pointing out in the shipped product that are not explicitly
+              finished:
             </p>
             <LimitationList
               items={[

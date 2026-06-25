@@ -4,6 +4,7 @@ import FieldNoteCard from '../components/FieldNoteCard';
 import useScrollReveal from '../hooks/useScrollReveal';
 import aipaHero from '../assets/aipa/avatar_encounter.jpg';
 import aspireHero from '../assets/aspire/solution_screens.jpg';
+import simreachHero from '../assets/simreach/hero_landing_full.jpg';
 
 const CATEGORIES = ['All', 'Design', 'Research', 'Other'];
 
@@ -19,7 +20,7 @@ const PROJECTS = [
     meta: ['Sept 2025 – Jan 2026', 'DALI Lab', 'Co-designed'],
     title: 'SimReach',
     description: 'A decision-support tool helping hospital administrators optimize oncologist allocation across hub-and-spoke cancer care networks.',
-    image: null,
+    image: simreachHero,
   },
   {
     id: 'aipa',
