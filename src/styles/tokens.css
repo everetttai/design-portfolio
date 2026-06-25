@@ -336,6 +336,39 @@ html { scroll-behavior: smooth; }
   .hero__skills-grid { grid-template-columns: 1fr !important; }
 }
 
+/* ============================================================
+   SimReach case-study layout — responsive collapse for the
+   grids used in CaseStudyParts.jsx (header/meta sidebar,
+   sticky TOC + body, persona cards, before/after pairs,
+   stat row).
+   ============================================================ */
+
+@media (max-width: 860px) {
+  .case-header-grid {
+    grid-template-columns: 1fr !important;
+  }
+  .case-body-grid {
+    grid-template-columns: 1fr !important;
+  }
+  .case-body-grid nav {
+    position: static !important;
+    margin-bottom: 8px;
+  }
+}
+
+@media (max-width: 700px) {
+  .persona-grid,
+  .before-after-grid {
+    grid-template-columns: 1fr !important;
+  }
+  .stat-row-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+  .stat-row-grid > div:nth-child(2n+1) {
+    border-left: none !important;
+  }
+}
+
 /* Honour reduced-motion: everything resolves to its final, static state. */
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
