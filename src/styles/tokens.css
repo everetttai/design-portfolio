@@ -356,6 +356,15 @@ html { scroll-behavior: smooth; }
   }
 }
 
+@media (max-width: 560px) {
+  .about-grid {
+    grid-template-columns: 1fr !important;
+  }
+  .about-grid img {
+    max-width: 220px;
+  }
+}
+
 @media (max-width: 700px) {
   .persona-grid,
   .before-after-grid {

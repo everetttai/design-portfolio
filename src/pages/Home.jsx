@@ -1,6 +1,7 @@
 import { useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import useScrollReveal from '../hooks/useScrollReveal';
+import everettPhoto from '../assets/about/everett_about.jpg';
 
 // Headline is split into words so each can rise into place on load.
 // Italic words are the concrete domains — the specificity is the point.
@@ -165,15 +166,40 @@ export default function Home() {
       </section>
 
       {/* ---------- About ---------- */}
-      <section id="about" className="wrap" style={{ maxWidth: '680px', padding: '0 0 30px' }}>
+      <section id="about" className="wrap" style={{ maxWidth: '780px', padding: '0 0 30px' }}>
         <div className="section-label reveal-on-scroll">About</div>
 
-        <p className="reveal-on-scroll" style={{ fontSize: '17px', marginBottom: '18px' }}>
-          I'm Everett Tai, a recent Dartmouth College graduate with a degree in Economics and
-          Psychology and a minor in Human-Centered Design. I currently work full-time as a LAUNCH
-          analyst at Hilton, and I design part-time and on the side — which is also what I'm
-          looking for more of.
-        </p>
+        <div
+          className="about-grid reveal-on-scroll"
+          style={{
+            display: 'grid',
+            gridTemplateColumns: '190px minmax(0, 1fr)',
+            gap: '32px',
+            alignItems: 'start',
+            marginBottom: '18px',
+          }}
+        >
+          <img
+            src={everettPhoto}
+            alt="Everett Tai"
+            style={{
+              width: '100%',
+              aspectRatio: '4 / 5',
+              objectFit: 'cover',
+              objectPosition: 'top',
+              borderRadius: '12px',
+              border: '1px solid var(--rule)',
+              display: 'block',
+            }}
+          />
+
+          <p style={{ fontSize: '17px', margin: 0 }}>
+            I'm Everett Tai, a recent Dartmouth College graduate with a degree in Economics and
+            Psychology and a minor in Human-Centered Design. I currently work full-time as a LAUNCH
+            analyst at Hilton, and I design part-time and on the side — which is also what I'm
+            looking for more of.
+          </p>
+        </div>
 
         <p className="reveal-on-scroll" style={{ fontSize: '17px', marginBottom: '18px' }}>
           My design background started in a UI/UX class at Dartmouth, which is where Aspire
