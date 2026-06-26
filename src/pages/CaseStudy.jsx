@@ -1,6 +1,7 @@
 import { useParams, Link } from 'react-router-dom';
 import ReactMarkdown from 'react-markdown';
 import remarkBreaks from 'remark-breaks';
+import useDocumentTitle from '../hooks/useDocumentTitle';
 
 import simreach from '../content/simreach.md?raw';
 import aipa from '../content/aipa.md?raw';
@@ -15,6 +16,12 @@ import aspireResearchProcess from '../assets/aspire/research_process.jpg';
 import aspireSolutionScreens from '../assets/aspire/solution_screens.jpg';
 
 const CONTENT = { simreach, aipa, aspire };
+
+const TITLES = {
+  simreach: 'SimReach',
+  aipa: 'AI Patient Actor',
+  aspire: 'Aspire',
+};
 
 // Maps "slug:key" image references used in markdown (e.g. aipa:mode_selector)
 // to actual imported image assets.
@@ -80,6 +87,7 @@ function CaseStudyImage({ src, alt }) {
 export default function CaseStudy() {
   const { slug } = useParams();
   const markdown = CONTENT[slug];
+  useDocumentTitle(markdown ? `Everett Tai | ${TITLES[slug] ?? slug}` : 'Everett Tai');
 
   if (!markdown) {
     return (

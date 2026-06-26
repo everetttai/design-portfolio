@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import useDocumentTitle from '../hooks/useDocumentTitle';
 import {
   CaseStudyHeader,
   StatRow,
@@ -28,6 +29,7 @@ const SECTIONS = [
 ];
 
 export default function SimReach() {
+  useDocumentTitle('Everett Tai | SimReach');
   return (
     <div className="wrap" style={{ padding: '60px 0 100px' }}>
       <Link className="case-link" to="/portfolio" style={{ marginBottom: '40px', display: 'inline-block' }}>

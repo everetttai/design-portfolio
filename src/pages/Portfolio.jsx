@@ -2,6 +2,7 @@ import { useState } from 'react';
 import CaseStudyCard from '../components/CaseStudyCard';
 import FieldNoteCard from '../components/FieldNoteCard';
 import useScrollReveal from '../hooks/useScrollReveal';
+import useDocumentTitle from '../hooks/useDocumentTitle';
 import aipaHero from '../assets/aipa/avatar_encounter.jpg';
 import aspireHero from '../assets/aspire/solution_screens.jpg';
 import simreachHero from '../assets/simreach/hero_landing_full.jpg';
@@ -57,6 +58,7 @@ const PROJECTS = [
 ];
 
 export default function Portfolio() {
+  useDocumentTitle('Everett Tai | Portfolio');
   const [activeCategory, setActiveCategory] = useState('All');
   useScrollReveal(activeCategory);
 

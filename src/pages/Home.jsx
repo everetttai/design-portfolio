@@ -1,6 +1,7 @@
 import { useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import useScrollReveal from '../hooks/useScrollReveal';
+import useDocumentTitle from '../hooks/useDocumentTitle';
 import everettPhoto from '../assets/about/everett_about.jpg';
 
 // Headline is split into words so each can rise into place on load.
@@ -57,6 +58,7 @@ function SkillCell({ title, body }) {
 
 export default function Home() {
   useScrollReveal();
+  useDocumentTitle('Everett Tai | Home');
   const innerRef = useRef(null);
   const location = useLocation();
 
@@ -175,33 +177,38 @@ export default function Home() {
             display: 'grid',
             gridTemplateColumns: '280px minmax(0, 1fr)',
             gap: '44px',
-            alignItems: 'start',
+            alignItems: 'stretch',
           }}
         >
-          <div style={{ position: 'relative' }}>
+          <div
+            style={{
+              position: 'relative',
+              borderRadius: '14px',
+              overflow: 'hidden',
+              boxShadow: '0 1px 2px rgba(26, 29, 31, 0.08), 0 12px 28px rgba(26, 29, 31, 0.12)',
+            }}
+          >
             <img
               src={everettPhoto}
               alt="Everett Tai"
               style={{
                 width: '100%',
-                aspectRatio: '4 / 5',
+                height: '100%',
+                minHeight: '360px',
                 objectFit: 'cover',
                 objectPosition: 'top',
-                borderRadius: '14px',
                 display: 'block',
-                boxShadow: '0 1px 2px rgba(26, 29, 31, 0.08), 0 12px 28px rgba(26, 29, 31, 0.12)',
               }}
             />
             <div
               aria-hidden="true"
               style={{
                 position: 'absolute',
-                bottom: '-12px',
-                right: '20px',
-                width: '40px',
+                bottom: 0,
+                left: 0,
+                right: 0,
                 height: '5px',
                 background: 'var(--accent)',
-                borderRadius: '3px',
               }}
             />
           </div>

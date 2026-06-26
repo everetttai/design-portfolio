@@ -360,8 +360,14 @@ html { scroll-behavior: smooth; }
   .about-grid {
     grid-template-columns: 1fr !important;
   }
+  .about-grid > div:first-child {
+    max-width: 280px;
+  }
   .about-grid img {
     max-width: 280px;
+    height: auto !important;
+    min-height: 0 !important;
+    aspect-ratio: 4 / 5;
   }
 }
 
