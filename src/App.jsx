@@ -5,6 +5,7 @@ import Home from './pages/Home';
 import Portfolio from './pages/Portfolio';
 import CaseStudy from './pages/CaseStudy';
 import SimReach from './pages/SimReach';
+import AIPA from './pages/AIPA';
 
 export default function App() {
   return (
@@ -15,6 +16,7 @@ export default function App() {
           <Route path="/" element={<Home />} />
           <Route path="/portfolio" element={<Portfolio />} />
           <Route path="/work/simreach" element={<SimReach />} />
+          <Route path="/work/aipa" element={<AIPA />} />
           <Route path="/work/:slug" element={<CaseStudy />} />
         </Routes>
       </Layout>

@@ -326,7 +326,7 @@ export function BeforeAfter({ before, after }) {
 
 // ---------- Image placeholder (used until real screenshots are dropped in) ----------
 
-export function ImagePlaceholder({ label, aspect = '16 / 10', assetKey, src }) {
+export function ImagePlaceholder({ label, aspect = '16 / 10', assetKey, src, fit = 'cover', background }) {
   if (src) {
     return (
       <img
@@ -335,9 +335,10 @@ export function ImagePlaceholder({ label, aspect = '16 / 10', assetKey, src }) {
         style={{
           width: '100%',
           aspectRatio: aspect,
-          objectFit: 'cover',
+          objectFit: fit,
           borderRadius: '10px',
           border: '1px solid var(--rule)',
+          background: background || (fit === 'contain' ? 'var(--bg-card)' : undefined),
           display: 'block',
         }}
       />

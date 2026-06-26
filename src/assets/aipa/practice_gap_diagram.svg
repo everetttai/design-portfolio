@@ -1,0 +1,62 @@
+<svg viewBox="0 0 900 420" xmlns="http://www.w3.org/2000/svg" font-family="Inter, sans-serif">
+  <!-- Column headers -->
+  <text x="220" y="44" font-size="14" font-weight="600" fill="#5B6B6B" text-anchor="middle" letter-spacing="0.5">
+    STANDARDIZED-PATIENT SESSIONS
+  </text>
+  <text x="680" y="44" font-size="14" font-weight="600" fill="#C24914" text-anchor="middle" letter-spacing="0.5">
+    AI PATIENT ACTOR
+  </text>
+
+  <!-- Divider -->
+  <line x1="450" y1="70" x2="450" y2="370" stroke="#D4D2CC" stroke-width="1" stroke-dasharray="3 4" />
+
+  <!-- Left side: a term timeline with a handful of sparse session dots -->
+  <line x1="80" y1="210" x2="360" y2="210" stroke="#D4D2CC" stroke-width="2" />
+  <text x="80" y="240" font-size="12" fill="#9A9B93">Week 1</text>
+  <text x="360" y="240" font-size="12" fill="#9A9B93" text-anchor="end">Week 10</text>
+
+  <circle cx="120" cy="210" r="7" fill="#5B6B6B" />
+  <circle cx="230" cy="210" r="7" fill="#5B6B6B" />
+  <circle cx="320" cy="210" r="7" fill="#5B6B6B" />
+
+  <text x="220" y="280" font-size="13" fill="#5B6B6B" text-anchor="middle">
+    A handful of scheduled
+  </text>
+  <text x="220" y="300" font-size="13" fill="#5B6B6B" text-anchor="middle">
+    encounters across a term
+  </text>
+
+  <!-- Right side: dense field of dots representing unlimited reps -->
+  <g fill="#C24914">
+    <circle cx="540" cy="150" r="6" />
+    <circle cx="575" cy="170" r="6" />
+    <circle cx="610" cy="145" r="6" />
+    <circle cx="645" cy="175" r="6" />
+    <circle cx="680" cy="155" r="6" />
+    <circle cx="715" cy="180" r="6" />
+    <circle cx="750" cy="150" r="6" />
+    <circle cx="785" cy="170" r="6" />
+    <circle cx="555" cy="200" r="6" />
+    <circle cx="595" cy="210" r="6" />
+    <circle cx="630" cy="195" r="6" />
+    <circle cx="665" cy="215" r="6" />
+    <circle cx="700" cy="200" r="6" />
+    <circle cx="735" cy="210" r="6" />
+    <circle cx="770" cy="195" r="6" />
+    <circle cx="540" cy="240" r="6" />
+    <circle cx="575" cy="225" r="6" />
+    <circle cx="615" cy="245" r="6" />
+    <circle cx="650" cy="230" r="6" />
+    <circle cx="690" cy="245" r="6" />
+    <circle cx="725" cy="225" r="6" />
+    <circle cx="760" cy="240" r="6" />
+    <circle cx="795" cy="225" r="6" />
+  </g>
+
+  <text x="665" y="290" font-size="13" fill="#C24914" text-anchor="middle" font-weight="500">
+    Practice on demand,
+  </text>
+  <text x="665" y="310" font-size="13" fill="#C24914" text-anchor="middle" font-weight="500">
+    any time, repeatably
+  </text>
+</svg>
