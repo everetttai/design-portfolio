@@ -166,56 +166,71 @@ export default function Home() {
       </section>
 
       {/* ---------- About ---------- */}
-      <section id="about" className="wrap" style={{ maxWidth: '780px', padding: '0 0 30px' }}>
+      <section id="about" className="wrap" style={{ maxWidth: '900px', padding: '0 0 30px' }}>
         <div className="section-label reveal-on-scroll">About</div>
 
         <div
           className="about-grid reveal-on-scroll"
           style={{
             display: 'grid',
-            gridTemplateColumns: '190px minmax(0, 1fr)',
-            gap: '32px',
+            gridTemplateColumns: '280px minmax(0, 1fr)',
+            gap: '44px',
             alignItems: 'start',
-            marginBottom: '18px',
           }}
         >
-          <img
-            src={everettPhoto}
-            alt="Everett Tai"
-            style={{
-              width: '100%',
-              aspectRatio: '4 / 5',
-              objectFit: 'cover',
-              objectPosition: 'top',
-              borderRadius: '12px',
-              border: '1px solid var(--rule)',
-              display: 'block',
-            }}
-          />
+          <div style={{ position: 'relative' }}>
+            <img
+              src={everettPhoto}
+              alt="Everett Tai"
+              style={{
+                width: '100%',
+                aspectRatio: '4 / 5',
+                objectFit: 'cover',
+                objectPosition: 'top',
+                borderRadius: '14px',
+                display: 'block',
+                boxShadow: '0 1px 2px rgba(26, 29, 31, 0.08), 0 12px 28px rgba(26, 29, 31, 0.12)',
+              }}
+            />
+            <div
+              aria-hidden="true"
+              style={{
+                position: 'absolute',
+                bottom: '-12px',
+                right: '20px',
+                width: '40px',
+                height: '5px',
+                background: 'var(--accent)',
+                borderRadius: '3px',
+              }}
+            />
+          </div>
 
-          <p style={{ fontSize: '17px', margin: 0 }}>
-            I'm Everett Tai, a recent Dartmouth College graduate with a degree in Economics and
-            Psychology and a minor in Human-Centered Design. I currently work full-time as a LAUNCH
-            analyst at Hilton, and I design part-time and on the side — which is also what I'm
-            looking for more of.
-          </p>
+          <div>
+            <p style={{ fontSize: '17px', marginBottom: '18px' }}>
+              I'm Everett Tai, a recent Dartmouth College graduate with a degree in Economics
+              and Psychology and a minor in Human-Centered Design. I currently work full-time as
+              a LAUNCH analyst at Hilton, and I design part-time and on the side — which is also
+              what I'm looking for more of.
+            </p>
+
+            <p style={{ fontSize: '17px', marginBottom: '18px' }}>
+              My design background started in a UI/UX class at Dartmouth, which is where Aspire
+              (one of the case studies in my work) came from — a full ideation-to-delivery
+              project I led across a four-person team. From there I joined Dartmouth's DALI Lab
+              as a UI/UX designer, where I worked across two larger, multi-quarter projects:
+              SimReach, a decision-support tool for hospital administrators, and AI Patient
+              Actor, a simulated-patient practice tool for medical students.
+            </p>
+
+            <p style={{ fontSize: '17px', margin: 0 }}>
+              Outside of screens, my Human-Centered Design minor also had me build a portable
+              composter from scratch in an intro engineering class — a reminder that the same
+              research-and-iterate instincts apply whether the constraint is a Figma frame or a
+              sheet of plywood.
+            </p>
+          </div>
         </div>
-
-        <p className="reveal-on-scroll" style={{ fontSize: '17px', marginBottom: '18px' }}>
-          My design background started in a UI/UX class at Dartmouth, which is where Aspire
-          (one of the case studies in my work) came from — a full ideation-to-delivery project
-          I led across a four-person team. From there I joined Dartmouth's DALI Lab as a UI/UX
-          designer, where I worked across two larger, multi-quarter projects: SimReach, a
-          decision-support tool for hospital administrators, and AI Patient Actor, a
-          simulated-patient practice tool for medical students.
-        </p>
-
-        <p className="reveal-on-scroll" style={{ fontSize: '17px', margin: 0 }}>
-          Outside of screens, my Human-Centered Design minor also had me build a portable
-          composter from scratch in an intro engineering class — a reminder that the same
-          research-and-iterate instincts apply whether the constraint is a Figma frame or a
-          sheet of plywood.
-        </p>
       </section>
 
       {/* ---------- Skills ---------- */}
