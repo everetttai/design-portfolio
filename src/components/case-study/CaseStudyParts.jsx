@@ -371,6 +371,40 @@ export function ImagePlaceholder({ label, aspect = '16 / 10', assetKey, src, fit
   );
 }
 
+// ---------- Standalone research/interview quote ----------
+
+export function PullQuote({ children, attribution }) {
+  return (
+    <blockquote style={{
+      borderLeft: '2px solid var(--accent)',
+      paddingLeft: '18px',
+      margin: '24px 0',
+    }}>
+      <p style={{
+        fontFamily: 'var(--font-display)',
+        fontStyle: 'italic',
+        fontSize: '17px',
+        color: 'var(--ink-soft)',
+        margin: 0,
+      }}>
+        {children}
+      </p>
+      {attribution && (
+        <div style={{
+          fontFamily: 'var(--font-body)',
+          fontStyle: 'normal',
+          fontSize: '13px',
+          color: 'var(--ink-soft)',
+          opacity: 0.7,
+          marginTop: '8px',
+        }}>
+          {attribution}
+        </div>
+      )}
+    </blockquote>
+  );
+}
+
 // ---------- Limitation callout ----------
 
 export function LimitationList({ items, note }) {
