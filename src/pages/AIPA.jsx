@@ -40,6 +40,10 @@ export default function AIPA() {
         kicker="Case study · DALI Lab"
         title="AI Patient Actor"
         dek="Giving medical students unlimited reps at the hardest part of becoming a doctor — talking to patients."
+        meta={[
+          { label: 'Role', value: 'UI/UX design · full project' },
+          { label: 'Team', value: 'DALI Lab × Geisel School of Medicine · with Cinay Dilibal' },
+        ]}
       />
 
       <StatRow
@@ -51,7 +55,7 @@ export default function AIPA() {
       />
 
       <div style={{ display: 'grid', gridTemplateColumns: '220px 1fr', gap: '60px', marginTop: '48px' }}>
-        <ContentsNav sections={SECTIONS} />
+        <ContentsNav items={SECTIONS} />
 
         <div>
           <Section id="problem" number="01" title="The problem">
@@ -64,7 +68,7 @@ export default function AIPA() {
               able to sit across from a nervous, scared, or evasive patient and get a usable
               history out of them.
             </p>
-            <ImagePlaceholder src={practiceGapDiagram} alt="Diagram illustrating the gap between clinical knowledge and practiced patient interaction" fit="contain" />
+            <ImagePlaceholder label="The practice gap" aspect="1350 / 630" src={practiceGapDiagram} fit="contain" />
             <p style={{ margin: '20px 0' }}>
               AI Patient Actor (AIPA) is a DALI Lab project built with Dr. Thomas Thesen at
               Geisel School of Medicine to close that gap: an AI-simulated patient students can
@@ -208,7 +212,7 @@ export default function AIPA() {
               patient who looks at them, speaks, and reacts, which is as close as the tool gets to
               replicating an actual standardized-patient encounter.
             </p>
-            <ImagePlaceholder src={modeSelector} alt="Begin Encounter modal letting a student choose between Text, Speech, and Avatar mode" />
+            <ImagePlaceholder label="Choosing a conversation mode" aspect="961 / 800" src={modeSelector} />
 
             <p style={{ fontWeight: 600, margin: '32px 0 12px' }}>
               Camera as opt-in, not a gate.
@@ -220,7 +224,7 @@ export default function AIPA() {
               confirms camera and microphone are ready, frames expectations clearly, and never
               forces a student to be on camera to practice.
             </p>
-            <ImagePlaceholder src={cameraOptional} alt="Device Check modal confirming camera and microphone are ready before an encounter begins" />
+            <ImagePlaceholder label="Device check before an encounter" aspect="1346 / 889" src={cameraOptional} />
 
             <p style={{ fontWeight: 600, margin: '32px 0 12px' }}>
               Diagnostic testing, broken into real categories.
@@ -232,7 +236,7 @@ export default function AIPA() {
               and more — alongside the live conversation with the patient. Ordering a test is now
               a decision, not a freebie.
             </p>
-            <ImagePlaceholder src={testOrdering} alt="Live encounter screen showing grouped, named diagnostic test categories alongside the patient conversation" />
+            <ImagePlaceholder label="Ordering tests during a live encounter" aspect="3024 / 1537" src={testOrdering} />
 
             <p style={{ fontWeight: 600, margin: '32px 0 12px' }}>
               An educator side that's more than a gradebook.
@@ -244,7 +248,8 @@ export default function AIPA() {
               with one-click quick reports for things like at-risk students and diagnosis accuracy
               trends.
             </p>
-            <ImagePlaceholder src={reportsTab} alt="Educator Reports tab with the AI assistant mid-conversation" />
+            {/* aspect is a placeholder guess — reports_tab.jpg isn't in this sandbox, so I couldn't measure it. Adjust if the image looks stretched. */}
+            <ImagePlaceholder label="Educator Reports with the AI assistant" aspect="16 / 9" src={reportsTab} />
           </Section>
 
           <Section id="limitations" number="06" title="Known limitations">
@@ -253,8 +258,14 @@ export default function AIPA() {
             </p>
             <LimitationList
               items={[
-                'The structured feedback/skill-breakdown screen — the direct design response to the "wall of text" research finding — isn\'t reliably working in the current live build. The design intent (named skill categories instead of one dense paragraph) was scoped and built, but it\'s not something I can point to as a stable, working feature today.',
-                '[Placeholder — second limitation. Let me know what else is worth flagging here, e.g. anything around avatar mode reliability, accessibility, or the educator/student split, and I\'ll write it in your voice.]',
+                {
+                  title: 'Structured feedback isn\'t reliably working yet',
+                  body: 'The skill-breakdown feedback screen — the direct design response to the "wall of text" research finding — isn\'t stable in the current live build. The design intent (named skill categories instead of one dense paragraph) was scoped and built, but it\'s not something I can point to as a working feature today.',
+                },
+                {
+                  title: '[Placeholder — second limitation]',
+                  body: '[Let me know what else is worth flagging here — e.g. avatar mode reliability, accessibility, or the educator/student split — and I\'ll write it in your voice.]',
+                },
               ]}
             />
           </Section>
@@ -285,8 +296,6 @@ export default function AIPA() {
 
       <CaseStudyFooter
         backHref="/portfolio"
-        prevHref="/work/simreach"
-        prevLabel="SimReach"
         nextHref="/work/aspire"
         nextLabel="Aspire"
       />
