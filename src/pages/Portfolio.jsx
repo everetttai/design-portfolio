@@ -53,6 +53,36 @@ const PROJECTS = [
     description: 'A physical product design project from an intro engineering class — constraint-driven design beyond the screen.',
     image: null,
   },
+  {
+    id: 'paper-instagram',
+    categories: ['Research'],
+    deep: false,
+    href: '/papers/psyc11-instagram-priming.pdf',
+    tag: 'Academic paper · Psychology',
+    title: 'Priming with Instagram',
+    description: "Tested whether thinking about friends vs. solo activities changed how looking at Instagram affected people's self-esteem and sense of loneliness.",
+    image: null,
+  },
+  {
+    id: 'paper-chinese-earnings',
+    categories: ['Research'],
+    deep: false,
+    href: '/papers/econ66-chinese-earnings.pdf',
+    tag: 'Academic paper · Economics',
+    title: 'Do US Markets Discount Earnings from Chinese Firms?',
+    description: 'Tested whether investors started paying less attention to earnings news from Chinese companies after US-China tensions rose during COVID.',
+    image: null,
+  },
+  {
+    id: 'paper-minimum-wage',
+    categories: ['Research'],
+    deep: false,
+    href: '/papers/econ20-minimum-wage.pdf',
+    tag: 'Academic paper · Economics',
+    title: 'Minimum Wage Increase on Wages and Income',
+    description: "Compared young workers' pay in Nebraska, which raised its minimum wage, against neighboring Oklahoma, which didn't — found the increase didn't produce the wage gains basic theory would predict.",
+    image: null,
+  },
   // Research projects go here once ready. Tagged 'Research' so the filter
   // picks them up automatically — no structural changes needed later.
 ];
@@ -139,6 +169,7 @@ export default function Portfolio() {
               <FieldNoteCard
                 key={p.id}
                 to={p.to}
+                href={p.href}
                 tag={p.tag}
                 title={p.title}
                 description={p.description}

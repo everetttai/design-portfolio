@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 
-export default function FieldNoteCard({ to, tag, title, description, image }) {
+export default function FieldNoteCard({ to, href, tag, title, description, image }) {
   const content = (
     <div className="field-card reveal-on-scroll" style={{
       background: 'var(--bg-card)',
@@ -45,6 +45,14 @@ export default function FieldNoteCard({ to, tag, title, description, image }) {
       </div>
     </div>
   );
+
+  if (href) {
+    return (
+      <a href={href} target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none', color: 'inherit' }}>
+        {content}
+      </a>
+    );
+  }
 
   if (!to) return content;
 
