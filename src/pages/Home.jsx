@@ -168,10 +168,13 @@ export default function Home() {
             textTransform: 'uppercase',
             color: 'var(--accent)',
             fontWeight: 500,
+            lineHeight: 1.6,
             marginBottom: '26px',
             animationDelay: '0.05s',
           }}>
-            Everett Tai Product Design • Strategy • Research
+            Everett Tai
+            <br />
+            Product Design • Strategy • Research
           </span>
 
           <h1 style={{
