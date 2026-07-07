@@ -1,13 +1,64 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import useScrollReveal from '../hooks/useScrollReveal';
 import useDocumentTitle from '../hooks/useDocumentTitle';
 import everettPhoto from '../assets/about/everett_about.jpg';
 
-// Headline is split into words so each can rise into place on load.
-// Italic words are the concrete domains — the specificity is the point.
-const HEADLINE = ['I', 'design', 'products', 'for', 'healthcare,', 'education,', 'and', 'career', 'tools.'];
-const ITALIC = new Set(['healthcare,', 'education,', 'career', 'tools.']);
+// Static half of the headline rises in word-by-word, same as before.
+const STATIC_HEADLINE = ['Designing', 'solutions', 'that', 'help', 'people'];
+
+// Second line cycles through these, one at a time, on a continuous loop.
+const CYCLE_WORDS = ['learn.', 'work.', 'connect.', 'decide.', 'grow.', 'heal.'];
+
+// Timing for the static words: word i rises in at STATIC_BASE_DELAY + i * STATIC_STEP,
+// animation itself takes 0.7s (see .hero__word in tokens.css). The cycling word's
+// first appearance is timed to begin right as the static line finishes, so the two
+// halves read as one continuous motion rather than two separate animations.
+const STATIC_BASE_DELAY = 0.18;
+const STATIC_STEP = 0.06;
+const CYCLE_INITIAL_DELAY_MS = Math.round(
+  (STATIC_BASE_DELAY + (STATIC_HEADLINE.length - 1) * STATIC_STEP + 0.7) * 1000
+);
+const CYCLE_DURATION_MS = 2200;
+
+function CyclingWord({ words, initialDelayMs, cycleMs }) {
+  const [index, setIndex] = useState(0);
+  const [reduced, setReduced] = useState(false);
+
+  useEffect(() => {
+    const mq = window.matchMedia('(prefers-reduced-motion: reduce)');
+    setReduced(mq.matches);
+    if (mq.matches) return undefined;
+
+    let timeoutId;
+    const scheduleNext = (delay) => {
+      timeoutId = setTimeout(() => {
+        setIndex((i) => (i + 1) % words.length);
+        scheduleNext(cycleMs);
+      }, delay);
+    };
+    // First swap happens once word #0 has fully played its rise-hold-fade cycle.
+    scheduleNext(initialDelayMs + cycleMs);
+    return () => clearTimeout(timeoutId);
+  }, [words, initialDelayMs, cycleMs]);
+
+  if (reduced) {
+    return <span className="hero__cycle-word hero__cycle-word--static">{words[0]}</span>;
+  }
+
+  return (
+    <span
+      key={index}
+      className="hero__cycle-word"
+      style={{
+        animationDelay: index === 0 ? `${initialDelayMs}ms` : '0ms',
+        animationDuration: `${cycleMs}ms`,
+      }}
+    >
+      {words[index]}
+    </span>
+  );
+}
 
 const EMAIL = 'everetthtai@gmail.com';
 const LINKEDIN_URL = 'https://www.linkedin.com/in/everett-tai-2a0524251';
@@ -131,19 +182,22 @@ export default function Home() {
             maxWidth: '760px',
             margin: '0 0 34px',
           }}>
-            {HEADLINE.map((word, i) => (
+            {STATIC_HEADLINE.map((word, i) => (
               <span
                 key={i}
                 className="hero__word"
-                style={{
-                  fontStyle: ITALIC.has(word) ? 'italic' : 'normal',
-                  animationDelay: `${0.18 + i * 0.06}s`,
-                }}
+                style={{ animationDelay: `${STATIC_BASE_DELAY + i * STATIC_STEP}s` }}
               >
                 {word}
-                {i < HEADLINE.length - 1 ? '\u00A0' : ''}
+                {i < STATIC_HEADLINE.length - 1 ? '\u00A0' : ''}
               </span>
             ))}
+            <br />
+            <CyclingWord
+              words={CYCLE_WORDS}
+              initialDelayMs={CYCLE_INITIAL_DELAY_MS}
+              cycleMs={CYCLE_DURATION_MS}
+            />
           </h1>
 
           <p className="hero__fade" style={{
@@ -154,8 +208,9 @@ export default function Home() {
             margin: 0,
             animationDelay: '0.78s',
           }}>
-            Recent Dartmouth grad (Human-Centered Design minor), currently a LAUNCH
-            analyst at Hilton — designing on the side, and looking for more of it.
+            Dartmouth graduate with backgrounds in human-centered design, psychology,
+            economics, and technology. Passionate about creating thoughtful products and
+            solving complex problems through research, design, and strategy.
           </p>
         </div>
 

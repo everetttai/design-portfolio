@@ -266,6 +266,35 @@ html { scroll-behavior: smooth; }
   to { opacity: 1; transform: translateY(0); }
 }
 
+/* Cycling word (second headline line) — rises in, holds, fades up and out,
+   then hands off to the next word via a key change in React. Same easing
+   curve as .hero__word so it reads as one continuous motion, not a bolted-on
+   effect. Percentages are keyed to whatever animation-duration is passed in
+   inline (see CyclingWord in Home.jsx), so hold-time scales with cycle length. */
+.hero__cycle-word {
+  display: inline-block;
+  font-style: italic;
+  color: var(--accent);
+  opacity: 0;
+  transform: translateY(0.42em);
+  animation-name: word-cycle;
+  animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+  animation-fill-mode: forwards;
+}
+
+.hero__cycle-word--static {
+  opacity: 1;
+  transform: none;
+  animation: none;
+}
+
+@keyframes word-cycle {
+  0%   { opacity: 0; transform: translateY(0.42em); }
+  8%   { opacity: 1; transform: translateY(0); }
+  84%  { opacity: 1; transform: translateY(0); }
+  100% { opacity: 0; transform: translateY(-0.42em); }
+}
+
 /* Eyebrow, sub-line and cue share a gentler fade-up. */
 .hero__fade {
   opacity: 0;
@@ -390,7 +419,8 @@ html { scroll-behavior: smooth; }
   .hero__glow { animation: none; }
   .scroll-cue__line::after { animation: none; opacity: 0; }
   .hero__word,
-  .hero__fade {
+  .hero__fade,
+  .hero__cycle-word {
     opacity: 1;
     transform: none;
     animation: none;
