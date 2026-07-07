@@ -4,7 +4,7 @@ import FieldNoteCard from '../components/FieldNoteCard';
 import useScrollReveal from '../hooks/useScrollReveal';
 import useDocumentTitle from '../hooks/useDocumentTitle';
 import aipaHero from '../assets/aipa/avatar_encounter.jpg';
-import aspireHero from '../assets/aspire/solution_screens.jpg';
+import aspireHero from '../assets/aspire/home_thumbnail.png';
 import simreachHero from '../assets/simreach/hero_landing_full.jpg';
 
 const CATEGORIES = ['All', 'Design', 'Research', 'Other'];
