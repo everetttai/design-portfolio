@@ -171,7 +171,7 @@ export default function Home() {
             marginBottom: '26px',
             animationDelay: '0.05s',
           }}>
-            Everett Tai — Product &amp; UX Designer
+            Everett Tai Product Design • Strategy • Research
           </span>
 
           <h1 style={{
@@ -271,26 +271,40 @@ export default function Home() {
 
           <div>
             <p style={{ fontSize: '17px', marginBottom: '18px' }}>
-              I'm Everett Tai, a recent Dartmouth College graduate with a degree in Economics
-              and Psychology and a minor in Human-Centered Design. I currently work full-time as
-              a LAUNCH analyst at Hilton, and I design part-time and on the side — which is also
-              what I'm looking for more of.
+              Hi, I'm Everett!
             </p>
 
             <p style={{ fontSize: '17px', marginBottom: '18px' }}>
-              My design background started in a UI/UX class at Dartmouth, which is where Aspire
-              (one of the case studies in my work) came from — a full ideation-to-delivery
-              project I led across a four-person team. From there I joined Dartmouth's DALI Lab
-              as a UI/UX designer, where I worked across two larger, multi-quarter projects:
-              SimReach, a decision-support tool for hospital administrators, and AI Patient
-              Actor, a simulated-patient practice tool for medical students.
+              I've always been fascinated by people—how we make decisions, what motivates us,
+              and why some experiences feel effortless while others create friction. That
+              curiosity led me to study economics and psychology at Dartmouth, where I discovered
+              human-centered design as a way to turn questions about people into products that
+              solve real problems.
+            </p>
+
+            <p style={{ fontSize: '17px', marginBottom: '18px' }}>
+              Today, I work as a LAUNCH Analyst at Hilton, where I help tackle business and
+              technology challenges while continuing to grow as a designer. Whether I'm
+              conducting research, mapping user journeys, prototyping interfaces, or thinking
+              through product strategy, I enjoy bringing together analytical thinking and
+              creativity to make complex ideas feel intuitive.
+            </p>
+
+            <p style={{ fontSize: '17px', marginBottom: '18px' }}>
+              What I enjoy most about design is beyond the interface itself—it's the process of
+              understanding people. Every project is an opportunity to learn how someone thinks,
+              uncover what's getting in their way, and create something that genuinely improves
+              their experience. That's what continues to draw me toward product, design, and
+              innovation work.
             </p>
 
             <p style={{ fontSize: '17px', margin: 0 }}>
-              Outside of screens, my Human-Centered Design minor also had me build a portable
-              composter from scratch in an intro engineering class — a reminder that the same
-              research-and-iterate instincts apply whether the constraint is a Figma frame or a
-              sheet of plywood.
+              Outside of work, you'll usually find me trying new recipes, staying active,
+              traveling, or finding excuses to explore somewhere new. As a former Division I
+              student-athlete at Dartmouth, I still carry the mindset that years of diving
+              instilled in me: curiosity, discipline, and a belief that meaningful progress comes
+              through continual iteration. I try to bring that same perspective into every
+              project I work on.
             </p>
           </div>
         </div>
