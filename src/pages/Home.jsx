@@ -24,23 +24,23 @@ const CYCLE_DURATION_MS = 2200;
 function CyclingWord({ words, initialDelayMs, cycleMs }) {
   const [index, setIndex] = useState(0);
   const [reduced, setReduced] = useState(false);
+  // Tracks whether the first (delayed) entrance has already played. Using a
+  // ref rather than checking index === 0 matters: without it, every time the
+  // loop wraps back around to word #0, it would incorrectly replay the long
+  // page-load startup delay instead of continuing the cycle smoothly.
+  const startedRef = useRef(false);
 
   useEffect(() => {
-    const mq = window.matchMedia('(prefers-reduced-motion: reduce)');
-    setReduced(mq.matches);
-    if (mq.matches) return undefined;
+    setReduced(window.matchMedia('(prefers-reduced-motion: reduce)').matches);
+  }, []);
 
-    let timeoutId;
-    const scheduleNext = (delay) => {
-      timeoutId = setTimeout(() => {
-        setIndex((i) => (i + 1) % words.length);
-        scheduleNext(cycleMs);
-      }, delay);
-    };
-    // First swap happens once word #0 has fully played its rise-hold-fade cycle.
-    scheduleNext(initialDelayMs + cycleMs);
-    return () => clearTimeout(timeoutId);
-  }, [words, initialDelayMs, cycleMs]);
+  // Advancing on the animation's own 'animationend' event (rather than a
+  // separately-scheduled setTimeout) keeps the cycle perfectly in sync —
+  // no drift between JS timing and CSS timing to cause a stutter.
+  const handleAnimationEnd = () => {
+    startedRef.current = true;
+    setIndex((i) => (i + 1) % words.length);
+  };
 
   if (reduced) {
     return <span className="hero__cycle-word hero__cycle-word--static">{words[0]}</span>;
@@ -51,9 +51,10 @@ function CyclingWord({ words, initialDelayMs, cycleMs }) {
       key={index}
       className="hero__cycle-word"
       style={{
-        animationDelay: index === 0 ? `${initialDelayMs}ms` : '0ms',
+        animationDelay: startedRef.current ? '0ms' : `${initialDelayMs}ms`,
         animationDuration: `${cycleMs}ms`,
       }}
+      onAnimationEnd={handleAnimationEnd}
     >
       {words[index]}
     </span>

@@ -292,7 +292,7 @@ html { scroll-behavior: smooth; }
   0%   { opacity: 0; transform: translateY(0.42em); }
   8%   { opacity: 1; transform: translateY(0); }
   84%  { opacity: 1; transform: translateY(0); }
-  100% { opacity: 0; transform: translateY(-0.42em); }
+  100% { opacity: 0; transform: translateY(0.5em); }
 }
 
 /* Eyebrow, sub-line and cue share a gentler fade-up. */
